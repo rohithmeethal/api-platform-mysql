@@ -60,6 +60,7 @@ RUN set -eux; \
 	apk del .build-deps
 
 ###> recipes ###
+RUN docker-php-ext-install mysqli pdo pdo_mysql && docker-php-ext-enable pdo_mysql
 ###< recipes ###
 
 COPY --from=composer:2.0 /usr/bin/composer /usr/bin/composer
